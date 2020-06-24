@@ -1,4 +1,4 @@
-set updatetime=100
+"set updatetime=100
 filetype plugin indent on
 set autoindent
 set tabstop=4
@@ -6,7 +6,6 @@ set shiftwidth=4
 set expandtab
 set number
 set ignorecase
-syntax on
 set hlsearch
 set incsearch
 map , <C-W><C-W>
@@ -18,6 +17,7 @@ set spelllang+=ru
 
 set nocompatible
 filetype plugin on
+syntax on
 
 autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
 nnoremap <silent> <C-b> :exe "let HlUnderCursor=exists(\"HlUnderCursor\")?HlUnderCursor*-1+1:1"<CR>
@@ -36,7 +36,7 @@ nnoremap <silent> <leader>h :split<CR>
 
 nnoremap <C-p> :FZFFiles<cr>
 nnoremap <S-p> :FZFBuffers<cr>
-nnoremap <C-f> :FZFAg<CR>
+nnoremap <C-f> :FZFRg<CR>
 
 nnoremap <silent> <leader>a :Ack <cword><CR>
 nnoremap <leader>f :Ack 
@@ -51,7 +51,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
-Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-dispatch'
 Plug 'dhruvasagar/vim-table-mode'
@@ -60,9 +59,11 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'rhysd/git-messenger.vim'
 
 call plug#end()
 
+let g:git_messenger_preview_mods = 'botright'
 
 let g:fzf_command_prefix = 'FZF'
 
@@ -71,7 +72,7 @@ let g:ack_use_dispatch = 1
 
 let g:goyo_width = 110
 
-let g:vimwiki_list = [{'path': '~/Volumes/Data/Dropbox/docs', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '/Volumes/Data/Dropbox/drafts', 'syntax': 'markdown', 'ext': '.md', 'automatic_nested_syntaxes': 1}]
 
 fun! SetCodeModeColor()
     " seoul256 (dark):
