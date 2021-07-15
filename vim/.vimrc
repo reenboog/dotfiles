@@ -1,4 +1,4 @@
-"set updatetime=100
+set updatetime=100
 filetype plugin indent on
 set autoindent
 set tabstop=4
@@ -64,15 +64,25 @@ Plug 'rhysd/git-messenger.vim'
 call plug#end()
 
 let g:git_messenger_preview_mods = 'botright'
+let g:git_messenger_close_on_cursor_moved = 'v:false'
 
 let g:fzf_command_prefix = 'FZF'
+let g:fzf_layout = { 'down': '~40%' }
 
 let g:ackprg = 'ag --vimgrep --smart-case'
 let g:ack_use_dispatch = 1
 
 let g:goyo_width = 110
 
-let g:vimwiki_list = [{'path': '/Volumes/Data/Dropbox/drafts', 'syntax': 'markdown', 'ext': '.md', 'automatic_nested_syntaxes': 1}]
+let vimwiki = {}
+
+let vimwiki.path = '/Volumes/Data/Dropbox/drafts'
+let vimwiki.syntax = 'markdown'
+let vimwiki.ext = '.md'
+let vimwiki.automatic_nested_syntaxes = 1
+let vimwiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'swift': 'swift'}
+
+let g:vimwiki_list = [vimwiki] 
 
 fun! SetCodeModeColor()
     " seoul256 (dark):
