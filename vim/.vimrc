@@ -1,8 +1,8 @@
 set updatetime=100
 filetype plugin indent on
 set autoindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set number
 set ignorecase
@@ -60,6 +60,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rhysd/git-messenger.vim'
+Plug 'mechatroner/rainbow_csv'
+Plug 'lfv89/vim-interestingwords'
 
 call plug#end()
 
@@ -84,6 +86,17 @@ let vimwiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'swift': 'swift
 
 let g:vimwiki_list = [vimwiki] 
 
+let g:interestingWordsDefaultMappings = 0
+
+nnoremap <silent> <leader>hh :call InterestingWords('n')<cr>
+vnoremap <silent> <leader>hh :call InterestingWords('v')<cr>
+nnoremap <silent> <leader>HH :call UncolorAllWords()<cr>
+
+nnoremap <silent> n :call WordNavigation(1)<cr>
+nnoremap <silent> N :call WordNavigation(0)<cr>
+
+let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222', '68', '85', '28', '45', '13', '32']
+  
 fun! SetCodeModeColor()
     " seoul256 (dark):
     "   Range:   233 (darkest) ~ 239 (lightest)
