@@ -78,7 +78,6 @@ let g:goyo_width = 110
 
 let vimwiki = {}
 
-let vimwiki.path = '/Volumes/Data/Dropbox/drafts'
 let vimwiki.syntax = 'markdown'
 let vimwiki.ext = '.md'
 let vimwiki.automatic_nested_syntaxes = 1
